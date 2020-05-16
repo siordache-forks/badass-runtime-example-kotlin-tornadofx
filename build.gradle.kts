@@ -9,9 +9,7 @@ plugins {
     application
     id("org.openjfx.javafxplugin") version "0.0.8"
 
-    // The Shadow Plugin is currently not compatible with Gradle 6.4
-    // see: https://github.com/johnrengelman/shadow/issues/572
-    // id("com.github.johnrengelman.shadow") version "5.2.0"
+    id("com.github.johnrengelman.shadow") version "5.2.0"
     id("org.beryx.runtime") version "1.8.4"
 }
 
@@ -25,6 +23,11 @@ compileKotlin.kotlinOptions {
 
 application {
     mainClassName = "org.beryx.runtime.test.kotlin.HelloWorldKt"
+
+    applicationDefaultJvmArgs = listOf(
+            "-Xtune:virtualized",
+            "-Xshareclasses",
+            "-Xshareclasses:name=${project.name}")
 }
 
 repositories {
