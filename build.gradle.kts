@@ -25,9 +25,7 @@ application {
     mainClassName = "org.beryx.runtime.test.kotlin.HelloWorldKt"
 
     applicationDefaultJvmArgs = listOf(
-            "-Xtune:virtualized",
-            "-Xshareclasses",
-            "-Xshareclasses:name=${project.name}")
+            "-Xtune:virtualized")
 }
 
 repositories {
